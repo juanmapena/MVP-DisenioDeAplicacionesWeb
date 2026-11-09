@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscripción a materias — MVP CU-05</title>
+  <!-- Open Sans desde Google Fonts; sin internet se usa la fuente del sistema -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Raíz de FormInscripcion (<<boundary>>): dibuja cada pantalla acá -->
+  <div id="app" aria-live="polite"></div>
+
+  <!-- Herramientas de la demo: NO forman parte de CU-05 -->
+  <details class="panel-demo" id="panel-demo">
+    <summary>Demo</summary>
+    <p>Herramientas para la presentación. No forman parte del caso de uso.</p>
+
+    <h3>Guía de escenarios (en este orden)</h3>
+    <ol class="guia">
+      <li><b>Escenario 2 – Sin cupo:</b> Carolina → Informática general, comisión <b>INF_GE_2</b>.</li>
+      <li><b>Escenario 4 – Correlativas:</b> Carolina → <b>Base de Datos I</b> (requiere Informática general).</li>
+      <li><b>Escenario 3 – Ya inscripto:</b> Lucas → <b>Matemática</b> (ya está en MAT_2).</li>
+      <li><b>Escenario 1 – Éxito:</b> Carolina → Informática general (<b>INF_GE_1</b>) + Matemática (<b>MAT_1</b>).</li>
+    </ol>
+    <h3>Extras</h3>
+    <ul class="guia">
+      <li><b>Resultado mixto:</b> “Reiniciar datos” y luego Carolina → Matemática + Base de Datos I.</li>
+      <li><b>A3:</b> ingresar como Valentina (inactiva).</li>
+      <li><b>A5:</b> marcar Inglés técnico (sin comisiones).</li>
+      <li><b>A12:</b> en el resumen, tocar el botón de abajo y después “Confirmar inscripción”.</li>
+    </ul>
+
+    <button type="button" id="demo-ocupar-cupo" disabled
+            title="Disponible en la pantalla de resumen (pasos 7 a 10)">
+      Simular que otro estudiante ocupa el último cupo (A12)
+    </button>
+    <button type="button" id="demo-reiniciar">↺ Reiniciar datos</button>
+    <p class="panel-demo__estado" id="demo-estado"></p>
+  </details>
+
+  <!--
+    Orden de carga (scripts clásicos, sin módulos: funciona con doble clic):
+    1. enums  2. Usuario (clase base)  3. subclases  4. resto del modelo
+    5. datos  6. control  7. vista  8. arranque
+  -->
+  <script src="js/modelo/enums.js"></script>
+  <script src="js/modelo/Usuario.js"></script>
+  <script src="js/modelo/Estudiante.js"></script>
+  <script src="js/modelo/Docente.js"></script>
+  <script src="js/modelo/Calificacion.js"></script>
+  <script src="js/modelo/Clase.js"></script>
+  <script src="js/modelo/Comision.js"></script>
+  <script src="js/modelo/Materia.js"></script>
+  <script src="js/modelo/PlanDeEstudio.js"></script>
+  <script src="js/modelo/Carrera.js"></script>
+  <script src="js/modelo/Inscripcion.js"></script>
+  <script src="js/modelo/SolicitudCertificado.js"></script>
+  <script src="js/datos/datosDemo.js"></script>
+  <script src="js/control/motivos.js"></script>
+  <script src="js/control/mapeador.js"></script>
+  <script src="js/control/ControladorInscripcion.js"></script>
+  <script src="js/vista/textos.js"></script>
+  <script src="js/vista/FormInscripcion.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
